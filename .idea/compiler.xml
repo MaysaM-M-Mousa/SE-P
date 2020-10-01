@@ -9,5 +9,8 @@
         <module name="SE-P" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SE-P" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
