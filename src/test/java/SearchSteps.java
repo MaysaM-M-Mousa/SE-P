@@ -1,17 +1,15 @@
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class SearchSteps {
 
-    Search search= new Search();
+    Search search = new Search();
 
 
     @Given("the following home is a data in the system")
@@ -41,7 +39,6 @@ public class SearchSteps {
     }
 
 
-
     // search by material
     @When("I search about home by material {string}")
     public void iSearchAboutHomeByMaterial(String material) {
@@ -50,6 +47,10 @@ public class SearchSteps {
 
 
     // search by placement
+    @When("I search about home by placement as {string}")
+    public void iSearchAboutHomeByPlacementAs(String placement) {
+        search.searchByPlacement(placement);
+    }
 
 
     // search by Pets
@@ -58,10 +59,58 @@ public class SearchSteps {
         search.searchByPets(condition);
     }
 
+    //search By amenities
+    @When("I search about home with {string} specification")
+    public void iSearchAboutHomeWithAmenities(String amenities) {
+        search.searchByAmenities(amenities);
+    }
+
+    //search By less than price 
+    @When("I search about home with price less than {int}")
+    public void iSearchAboutHomeWithPriceLessThan(Integer price) {
+        search.searchByLessThanPrice(price);
+    }
+
+    //search by in between price 
+    @When("I search about home with price less than {int} and more than {int}")
+    public void iSearchAboutHomeWithPriceLessThanAndMoreThan(Integer less, Integer more) {
+        search.searchByInBetweenPrice(less, more);
+    }
 
 
     // TODO implement (@When) tags for the rest of scenarios -> Note that (@Then) tag is general
 
+
+    //search by area less than
+    @When("I search about home with area less than {int}")
+    public void iSearchAboutHomeWithAreaLessThan(Integer area) {
+        search.searchByArea(area);
+    }
+
+    //search by area in between
+    @When("I search about home with area less than {int} and more than {int}")
+    public void iSearchAboutHomeWithAreaLessThanAndMoreThan(Integer less, Integer more) {
+        search.searchByAreaInBetween(less, more);
+    }
+
+    //search by bedrooms
+    @When("I search about home with specific number of bedrooms {int}")
+    public void iSearchAboutHomeWithSpecificNumberOfBedrooms(Integer bedrooms) {
+        search.searchByBedrooms(bedrooms);
+    }
+
+    //search by bathrooms
+    @When("I search about home with {int} bathrooms")
+    public void iSearchAboutHomeWithBathroomsBathrooms(Integer bathrooms) {
+        search.searchByBathrooms(bathrooms);
+
+    }
+
+    //search by lease length
+    @When("I search about home with {int} specification")
+    public void iSearchAboutHomeWithLease_lengthSpecification(Integer lease) {
+        search.searchByLease(lease);
+    }
 
     @Then("A list of homes that matches specifications {string} should be returned and printed on the console")
     public void aListOfHomesThatMatchesSpecificationsShouldBeReturnedAndPrintedOnTheConsole(String result) {
@@ -80,6 +129,4 @@ public class SearchSteps {
         }
 
     }
-
-
 }
