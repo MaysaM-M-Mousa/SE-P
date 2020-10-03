@@ -1,4 +1,4 @@
-public class Home extends SearchSteps {
+public class Home  {
     private String ID;
     private String type;
     private String material;
