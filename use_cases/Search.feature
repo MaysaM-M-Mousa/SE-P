@@ -2,8 +2,6 @@ Feature: Search about suitable home
 
   Background: The System has a repository of homes with their specifications (type-material-placement-pets-amenities-price-area-bedrooms-bathrooms-leaselength)
     Given  the following home is a data in the system
-#      | HOUSE_WOOD_VILLAGE_NO_GARAGEPARKING,FIREPLACE,ELEVATOR | 510_150_3_2_6  |
-#      | APARTMENT_BRICK_CITY_NO_ELEVATOR                       | 230_120_4_2_12 |
 
       | Property    | value                            |
       | ID          | 01                               |
@@ -129,7 +127,7 @@ Feature: Search about suitable home
       | bathrooms | result |
       | 2         | 01,02  |
       | 0         | None   |
-
+#
   Scenario Outline: Search about home by specific Lease Length (short term_6 months/long term_year)
     When I search about home with <lease_length> specific lease length
     Then A list of homes that matches specifications "<result>" should be returned and printed on the console
@@ -139,6 +137,35 @@ Feature: Search about suitable home
       | 12           | 02     |
 
 
+  Scenario Outline: Combined Scenario #1
+    When I search about pets "<pets>" and price less than <price>
+    Then A list of homes that matches specifications "<result>" should be returned and printed on the console
+    Examples:
+      | pets | price | result |
+      | No   | 200   | None   |
+      | No   | 400   | 02     |
+      | Yes  | 2000  | None   |
 
-#  TODO: Implement Last scenario
+  Scenario Outline: Combined Scenario #2
+    When I search about material "<material>" and price between <price_more_than> and <price_less_than>
+    Then A list of homes that matches specifications "<result>" should be returned and printed on the console
+    Examples:
+      | material | price_less_than | price_more_than | result |
+      | Wood     | 500             | 100             | None   |
+      | Brick    | 300             | 150             | 02     |
+
+  Scenario Outline: Combined Scenario #3
+    When I search about type "<pets>" and area between <area_more_than> and <area_less_than> and <bathrooms>
+    Then A list of homes that matches specifications "<result>" should be returned and printed on the console
+    Examples:
+      | pets | area_less_than | area_more_than | bathrooms | result |
+      | No   | 200            | 100            | 2         | 01,02  |
+      | Yes  | 300            | 250            | 4         | None   |
+
+
+
+
+
+
+
 

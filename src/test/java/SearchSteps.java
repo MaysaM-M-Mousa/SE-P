@@ -126,4 +126,27 @@ public class SearchSteps {
         }
 
     }
+
+    // first combined scenario (pets and less that price)
+    @When("I search about pets {string} and price less than {int}")
+    public void iSearchAboutPetsAndPriceLessThanPrice(String condition, Integer price) {
+        search.searchByPets(condition);
+        search.searchByLessThanPrice(price);
+
+    }
+    // second combined scenario (pets and less that price)
+    @When("I search about material {string} and price between {int} and {int}")
+    public void iSearchAboutMaterialAndPriceBetweenPrice_more_thanAndPrice_less_than(String material, int more, int less) {
+        search.searchByMaterial(material);
+        search.searchByInBetweenPrice(less, more);
+    }
+
+    @When("I search about type {string} and area between {int} and {int} and {int}")
+    public void iSearchAboutTypeAndAreaBetweenArea_more_thanAndArea_less_thanAndBathrooms(String condition,
+                int less,int more, int bathrooms){
+        search.searchByPets(condition);
+        search.searchByAreaInBetween(less, more);
+        search.searchByBathrooms(bathrooms);
+
+    }
 }
