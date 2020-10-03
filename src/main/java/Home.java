@@ -1,8 +1,9 @@
 public class Home {
+    private String ID;
     private String type;
     private String material;
     private String placement;
-    private String [] amenities;
+    private String[] amenities;
 
     private Integer price;
     private Integer area;
@@ -12,11 +13,12 @@ public class Home {
 
     private Boolean pets;
 
-    public Home(){
+    public Home() {
     }
 
-    public Home(String type, String material, String placement, String[] amenities, Integer price,
+    public Home(String ID, String type, String material, String placement, String[] amenities, Integer price,
                 Integer area, Integer bedrooms, Integer bathrooms, Integer leaseLength, Boolean pets) {
+        this.ID = ID;
         this.type = type;
         this.material = material;
         this.placement = placement;
@@ -27,6 +29,14 @@ public class Home {
         this.bathrooms = bathrooms;
         this.leaseLength = leaseLength;
         this.pets = pets;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getType() {
@@ -107,5 +117,15 @@ public class Home {
 
     public void setPets(Boolean pets) {
         this.pets = pets;
+    }
+
+    @Override
+    public String toString() {
+        return "HomeID: " + getID() + "\n" +
+                "HomeType: " + getType() + "\n" +
+                "HomeMaterial: " + getMaterial() + "\n" +
+                "HomeAmenities: " + getAmenities() + "\n" +
+                "HomePlacement: " + getPlacement() + "\n";
+
     }
 }
