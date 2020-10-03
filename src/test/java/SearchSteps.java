@@ -78,10 +78,6 @@ public class SearchSteps {
         search.searchByInBetweenPrice(less, more);
     }
 
-
-    // TODO implement (@When) tags for the rest of scenarios -> Note that (@Then) tag is general
-
-
     //search by area less than
     @When("I search about home with area less than {int}")
     public void iSearchAboutHomeWithAreaLessThan(Integer area) {
