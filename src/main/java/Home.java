@@ -1,4 +1,4 @@
-public class Home {
+public class Home extends SearchSteps {
     private String ID;
     private String type;
     private String material;
@@ -111,11 +111,12 @@ public class Home {
 
     @Override
     public String toString() {
-        return "HomeID: " + getID() + "\n" +
-                "HomeType: " + getType() + "\n" +
-                "HomeMaterial: " + getMaterial() + "\n" +
-                "HomeAmenities: " + getAmenities() + "\n" +
-                "HomePlacement: " + getPlacement() + "\n";
+        String resultAmenities="";
+        for (String temp:amenities)
+                resultAmenities+=temp+",";
+        return "[Home ID: "+getID()+", Home Type: "+getType()+", Home Placement: "+getPlacement()+", Home Price: "+getPrice()
+                +", Amenities: ("+resultAmenities.substring(0,resultAmenities.length()-1)+")" +", Bedrooms: "+getBedrooms()+",Bathrooms: "+getBathrooms()
+                +", Pets: "+getBedrooms();
 
     }
 }

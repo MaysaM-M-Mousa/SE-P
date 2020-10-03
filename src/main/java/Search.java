@@ -138,13 +138,16 @@ public class Search {
         if (duplicatedElements) {
             for (Home home : duplicatedArrayList) {
                 allHousesStr += home.getID() + ",";
+                System.out.println(home);
             }
         } else if (counter == 1) {
             for (Home home : resultSearchList) {
                 allHousesStr += home.getID() + ",";
+                System.out.println(home);
             }
         }
         counter=0;
+
         return allHousesStr;
     }
 }

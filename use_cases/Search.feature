@@ -146,7 +146,7 @@ Feature: Search about suitable home
       | No   | 400   | 02     |
       | Yes  | 2000  | None   |
 
-  Scenario Outline: Combined Scenario #1
+  Scenario Outline: Combined Scenario #2
     When I search about material "<material>" and price between <price_more_than> and <price_less_than>
     Then A list of homes that matches specifications "<result>" should be returned and printed on the console
     Examples:
