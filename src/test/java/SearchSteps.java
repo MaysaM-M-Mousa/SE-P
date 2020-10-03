@@ -28,7 +28,8 @@ public class SearchSteps {
         home.setPrice(Integer.parseInt(list.get(7)));
         home.setArea(Integer.parseInt(list.get(8)));
         home.setBedrooms(Integer.parseInt(list.get(9)));
-        home.setLeaseLength(Integer.parseInt(list.get(10)));
+        home.setBathrooms(Integer.parseInt(list.get(10)));
+        home.setLeaseLength(Integer.parseInt(list.get(11)));
         search.addHome(home);
     }
 
@@ -107,7 +108,7 @@ public class SearchSteps {
     }
 
     //search by lease length
-    @When("I search about home with {int} specification")
+    @When("I search about home with {int} specific lease length")
     public void iSearchAboutHomeWithLease_lengthSpecification(Integer lease) {
         search.searchByLease(lease);
     }

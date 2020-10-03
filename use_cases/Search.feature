@@ -11,7 +11,7 @@ Feature: Search about suitable home
       | Material    | Wood                             |
       | Placement   | Village                          |
       | Pets        | No                               |
-      | Amenities   | GARAGEPARKING,FIREPLACE,ELEVATOR |
+      | Amenities   | GarageParking,FirePlace,Elevator |
       | Price       | 510                              |
       | Area        | 150                              |
       | Bedrooms    | 3                                |
@@ -26,7 +26,7 @@ Feature: Search about suitable home
       | Material    | Brick     |
       | Placement   | City      |
       | Pets        | No        |
-      | Amenities   | ELEVATOR  |
+      | Amenities   | Elevator  |
       | Price       | 230       |
       | Area        | 120       |
       | Bedrooms    | 4         |
@@ -72,7 +72,7 @@ Feature: Search about suitable home
     Then A list of homes that matches specifications "<result>" should be returned and printed on the console
     Examples:
       | amenities       | result |
-      | AirConditioning | 01     |
+      | AirConditioning | None   |
       | Balcony         | None   |
       | Elevator        | 01,02  |
       | FirePlace       | 01     |
@@ -131,7 +131,7 @@ Feature: Search about suitable home
       | 0         | None   |
 
   Scenario Outline: Search about home by specific Lease Length (short term_6 months/long term_year)
-    When I search about home with "<lease_length>" specification
+    When I search about home with <lease_length> specific lease length
     Then A list of homes that matches specifications "<result>" should be returned and printed on the console
     Examples:
       | lease_length | result |

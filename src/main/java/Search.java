@@ -98,14 +98,14 @@ public class Search {
 
     public void searchByBathrooms(int bathrooms) {
         for (Home home : homeList) {
-            if (home.getBedrooms()==bathrooms)
+            if (home.getBathrooms()==bathrooms)
                 resultSearchList.add(home);
         }
     }
 
     public void searchByLease(Integer lease) {
         for (Home home : homeList) {
-            if (home.getBedrooms().equals(lease))
+            if (home.getLeaseLength()==(lease))
                 resultSearchList.add(home);
         }
     }
