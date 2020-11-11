@@ -1,3 +1,5 @@
+package MainClasess;
+
 public class Home {
     private String ID;
     private String type;
@@ -30,6 +32,7 @@ public class Home {
         this.bathrooms = bathrooms;
         this.leaseLength = leaseLength;
         this.pets = pets;
+
     }
 
     public String getID() {
@@ -114,7 +117,7 @@ public class Home {
         String resultAmenities="";
         for (String temp:amenities)
                 resultAmenities+=temp+",";
-        return "[Home ID: "+getID()+", Home Type: "+getType()+", Home Placement: "+getPlacement()+", Home Price: "+getPrice()
+        return "[MainClasess.Home ID: "+getID()+", MainClasess.Home Type: "+getType()+", MainClasess.Home Placement: "+getPlacement()+", MainClasess.Home Price: "+getPrice()
                 +", Amenities: ("+resultAmenities.substring(0,resultAmenities.length()-1)+")" +", Bedrooms: "+getBedrooms()+",Bathrooms: "+getBathrooms()
                 +", Pets: "+getBedrooms();
 

@@ -1,3 +1,5 @@
+import MainClasess.Home;
+
 import java.util.ArrayList;
 
 public class Search {
@@ -100,7 +102,7 @@ public class Search {
 
     public void searchByBedrooms(Integer bedrooms) {
         for (Home home : homeList) {
-            if (home.getBedrooms() == bedrooms)
+            if (home.getBedrooms() == (int)bedrooms)
                 resultSearchList.add(home);
         }
         counter++;
@@ -116,7 +118,7 @@ public class Search {
 
     public void searchByLease(Integer lease) {
         for (Home home : homeList) {
-            if (home.getLeaseLength() == (lease))
+            if (home.getLeaseLength() == (int)lease)
                 resultSearchList.add(home);
         }
         counter++;
@@ -146,7 +148,7 @@ public class Search {
                 System.out.println(home);
             }
         }
-        counter=0;
+        counter = 0;
 
         return allHousesStr;
     }
