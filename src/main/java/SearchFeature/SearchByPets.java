@@ -9,7 +9,7 @@ public class SearchByPets implements SearchInterface {
     String condition;
     ArrayList<Home> byPets;
 
-    SearchByPets(String condition) {
+    public SearchByPets(String condition) {
         this.condition = condition;
         byPets = new ArrayList<Home>();
     }

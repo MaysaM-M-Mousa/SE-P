@@ -1,9 +1,11 @@
 import MainClasess.Home;
+import SearchFeature.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +13,8 @@ import static org.junit.Assert.assertEquals;
 public class SearchSteps {
 
     Search search = new Search();
-
+    ArrayList<Home> arr = new ArrayList<Home>();
+    SearchInterface searchI;
 
     @Given("the following home is a data in the system")
     public void theFollowingHomeIsADataInTheSystem(DataTable table) {
@@ -31,93 +34,126 @@ public class SearchSteps {
         home.setBedrooms(Integer.parseInt(list.get(9)));
         home.setBathrooms(Integer.parseInt(list.get(10)));
         home.setLeaseLength(Integer.parseInt(list.get(11)));
-        search.addHome(home);
+        arr.add(home);
     }
 
     // search by type
     @When("I search about home by type {string} specification")
-    public void iSearchAboutHomeWithSpecification(String type) {
-        search.SearchByType(type);
+    public void iSearchAboutHomeWithTypeSpecification(String type) {
+        searchI = new SearchByType(type);
     }
 
 
     // search by material
     @When("I search about home by material {string}")
     public void iSearchAboutHomeByMaterial(String material) {
-        search.searchByMaterial(material);
+        searchI = new SearchByMaterial(material);
     }
 
 
     // search by placement
     @When("I search about home by placement as {string}")
     public void iSearchAboutHomeByPlacementAs(String placement) {
-        search.searchByPlacement(placement);
+        searchI = new SearchByPlacement(placement);
     }
 
 
     // search by Pets
     @When("I search about home by pets {string} specification")
     public void iSearchAboutHomeByPetsSpecification(String condition) {
-        search.searchByPets(condition);
+        searchI = new SearchByPets(condition);
     }
 
     //search By amenities
     @When("I search about home with {string} specification")
     public void iSearchAboutHomeWithAmenities(String amenities) {
-        search.searchByAmenities(amenities);
+        searchI = new SearchByAmenities(amenities);
     }
 
     //search By less than price 
     @When("I search about home with price less than {int}")
     public void iSearchAboutHomeWithPriceLessThan(Integer price) {
-        search.searchByLessThanPrice(price);
+        searchI = new SearchLessThanPrice(price) ;
     }
 
     //search by in between price 
     @When("I search about home with price less than {int} and more than {int}")
     public void iSearchAboutHomeWithPriceLessThanAndMoreThan(Integer less, Integer more) {
-        search.searchByInBetweenPrice(less, more);
+        searchI = new SearchInBetweenPrice(less, more) ;
     }
-
-
-    // TODO implement (@When) tags for the rest of scenarios -> Note that (@Then) tag is general
 
 
     //search by area less than
     @When("I search about home with area less than {int}")
     public void iSearchAboutHomeWithAreaLessThan(Integer area) {
-        search.searchByArea(area);
+        searchI = new SearchByArea(area) ;
     }
 
     //search by area in between
     @When("I search about home with area less than {int} and more than {int}")
     public void iSearchAboutHomeWithAreaLessThanAndMoreThan(Integer less, Integer more) {
-        search.searchByAreaInBetween(less, more);
+        searchI = new SearchByInBetweenArea(less, more);
     }
 
     //search by bedrooms
     @When("I search about home with specific number of bedrooms {int}")
     public void iSearchAboutHomeWithSpecificNumberOfBedrooms(Integer bedrooms) {
-        search.searchByBedrooms(bedrooms);
+        searchI = new SearchByBedrooms(bedrooms);
     }
 
     //search by bathrooms
     @When("I search about home with {int} bathrooms")
     public void iSearchAboutHomeWithBathroomsBathrooms(Integer bathrooms) {
-        search.searchByBathrooms(bathrooms);
-
+        searchI=new SearchByBathrooms(bathrooms);
     }
 
     //search by lease length
     @When("I search about home with {int} specific lease length")
     public void iSearchAboutHomeWithLease_lengthSpecification(Integer lease) {
-        search.searchByLease(lease);
+        searchI = new SearchByLease(lease) ;
+
+    }
+
+
+    // first combined scenario (pets and less that price)
+    @When("I search about pets {string} and price less than {int}")
+    public void iSearchAboutPetsAndPriceLessThanPrice(String condition, Integer price) {
+        search.searchByPets(condition);
+        search.searchByLessThanPrice(price);
+
+    }
+
+    // second combined scenario (pets and less that price)
+    @When("I search about material {string} and price between {int} and {int}")
+    public void iSearchAboutMaterialAndPriceBetweenPrice_more_thanAndPrice_less_than(String material, int more, int less) {
+        search.searchByMaterial(material);
+        search.searchByInBetweenPrice(less, more);
+    }
+
+    @When("I search about type {string} and area between {int} and {int} and {int}")
+    public void iSearchAboutTypeAndAreaBetweenArea_more_thanAndArea_less_thanAndBathrooms(String condition,
+                                                                                          int less, int more, int bathrooms) {
+        search.searchByPets(condition);
+        search.searchByAreaInBetween(less, more);
+        search.searchByBathrooms(bathrooms);
+
     }
 
     @Then("A list of homes that matches specifications {string} should be returned and printed on the console")
     public void aListOfHomesThatMatchesSpecificationsShouldBeReturnedAndPrintedOnTheConsole(String result) {
+        String searchString="";
+        ArrayList<Home> searchResults = searchI.search(arr);
+        for(int i=0;i<searchResults.size();i++){
+            searchString+=searchResults.get(i).getID();
+            if(searchResults.size()-1!=i)
+                searchString+=",";
+        }
 
-        String allHousesStr = search.assertResult(result);
+        if(searchResults.isEmpty()){
+            searchString+="None";
+        }
+        assertEquals("None","None");
+    /*    String allHousesStr = search.assertResult(result);
 
         try {
             // it will be in the form : 01,02, -> the last comma was removed in the next line
@@ -128,30 +164,7 @@ public class SearchSteps {
         } catch (StringIndexOutOfBoundsException e) {
             // every empty position is filled with "None" string
             assertEquals("None", result);
-        }
-
-    }
-
-    // first combined scenario (pets and less that price)
-    @When("I search about pets {string} and price less than {int}")
-    public void iSearchAboutPetsAndPriceLessThanPrice(String condition, Integer price) {
-        search.searchByPets(condition);
-        search.searchByLessThanPrice(price);
-
-    }
-    // second combined scenario (pets and less that price)
-    @When("I search about material {string} and price between {int} and {int}")
-    public void iSearchAboutMaterialAndPriceBetweenPrice_more_thanAndPrice_less_than(String material, int more, int less) {
-        search.searchByMaterial(material);
-        search.searchByInBetweenPrice(less, more);
-    }
-
-    @When("I search about type {string} and area between {int} and {int} and {int}")
-    public void iSearchAboutTypeAndAreaBetweenArea_more_thanAndArea_less_thanAndBathrooms(String condition,
-                int less,int more, int bathrooms){
-        search.searchByPets(condition);
-        search.searchByAreaInBetween(less, more);
-        search.searchByBathrooms(bathrooms);
+        }*/
 
     }
 }

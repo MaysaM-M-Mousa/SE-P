@@ -9,6 +9,10 @@ public class SearchByPlacement implements SearchInterface {
     ArrayList<Home> byPlacement;
     String placement;
 
+    public SearchByPlacement(String condition) {
+        this.placement = condition;
+        byPlacement = new ArrayList<Home>();
+    }
 
     public ArrayList<Home> search(ArrayList<Home> HomeList) {
 
