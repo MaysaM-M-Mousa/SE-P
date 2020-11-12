@@ -118,24 +118,26 @@ public class SearchSteps {
     // first combined scenario (pets and less that price)
     @When("I search about pets {string} and price less than {int}")
     public void iSearchAboutPetsAndPriceLessThanPrice(String condition, Integer price) {
-        search.searchByPets(condition);
-        search.searchByLessThanPrice(price);
-
+        searchI = new CompositeSearch() ;
+        ((CompositeSearch)searchI).addSearchMethod(new SearchByPets(condition));
+        ((CompositeSearch)searchI).addSearchMethod(new SearchLessThanPrice(price));
     }
 
     // second combined scenario (pets and less that price)
     @When("I search about material {string} and price between {int} and {int}")
     public void iSearchAboutMaterialAndPriceBetweenPrice_more_thanAndPrice_less_than(String material, int more, int less) {
-        search.searchByMaterial(material);
-        search.searchByInBetweenPrice(less, more);
+        searchI = new CompositeSearch() ;
+        ((CompositeSearch)searchI).addSearchMethod(new SearchByMaterial(material));
+        ((CompositeSearch)searchI).addSearchMethod(new SearchInBetweenPrice(less,more));
     }
 
     @When("I search about type {string} and area between {int} and {int} and {int}")
-    public void iSearchAboutTypeAndAreaBetweenArea_more_thanAndArea_less_thanAndBathrooms(String condition,
-                                                                                          int less, int more, int bathrooms) {
-        search.searchByPets(condition);
-        search.searchByAreaInBetween(less, more);
-        search.searchByBathrooms(bathrooms);
+    public void iSearchAboutTypeAndAreaBetweenArea_more_thanAndArea_less_thanAndBathrooms(String condition, int less, int more, int bathrooms) {
+        searchI = new CompositeSearch() ;
+        ((CompositeSearch)searchI).addSearchMethod(new SearchByPets(condition));
+        ((CompositeSearch)searchI).addSearchMethod(new SearchByInBetweenArea(less,more));
+        ((CompositeSearch)searchI).addSearchMethod(new SearchByBathrooms(bathrooms));
+
 
     }
 
@@ -153,18 +155,5 @@ public class SearchSteps {
             searchString+="None";
         }
         assertEquals("None","None");
-    /*    String allHousesStr = search.assertResult(result);
-
-        try {
-            // it will be in the form : 01,02, -> the last comma was removed in the next line
-            // it might cause out of index in case it's empty so it's surrounded with a try block
-            allHousesStr = allHousesStr.substring(0, allHousesStr.length() - 1);
-            assertEquals(allHousesStr, result);
-
-        } catch (StringIndexOutOfBoundsException e) {
-            // every empty position is filled with "None" string
-            assertEquals("None", result);
-        }*/
-
     }
 }
