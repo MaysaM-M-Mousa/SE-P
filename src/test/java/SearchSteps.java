@@ -1,5 +1,5 @@
-import MainClasess.Home;
-import SearchFeature.*;
+import mainclasses.Home;
+import searchfeature.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,8 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class SearchSteps {
 
-    Search search = new Search();
-    ArrayList<Home> arr = new ArrayList<Home>();
+    ArrayList<Home> arr = new ArrayList<>();
     SearchInterface searchI;
 
     @Given("the following home is a data in the system")
@@ -132,7 +131,7 @@ public class SearchSteps {
     }
 
     @When("I search about type {string} and area between {int} and {int} and {int}")
-    public void iSearchAboutTypeAndAreaBetweenArea_more_thanAndArea_less_thanAndBathrooms(String condition, int less, int more, int bathrooms) {
+    public void iSearchAboutTypeAndAreaBetweenArea_more_thanAndArea_less_thanAndBathrooms(String condition, int more, int less, int bathrooms) {
         searchI = new CompositeSearch() ;
         ((CompositeSearch)searchI).addSearchMethod(new SearchByPets(condition));
         ((CompositeSearch)searchI).addSearchMethod(new SearchByInBetweenArea(less,more));
@@ -144,7 +143,8 @@ public class SearchSteps {
     @Then("A list of homes that matches specifications {string} should be returned and printed on the console")
     public void aListOfHomesThatMatchesSpecificationsShouldBeReturnedAndPrintedOnTheConsole(String result) {
         String searchString="";
-        ArrayList<Home> searchResults = searchI.search(arr);
+        ArrayList<Home> searchResults = (ArrayList<Home>)searchI.search(arr);
+        System.out.println(searchString);
         for(int i=0;i<searchResults.size();i++){
             searchString+=searchResults.get(i).getID();
             if(searchResults.size()-1!=i)
@@ -154,6 +154,7 @@ public class SearchSteps {
         if(searchResults.isEmpty()){
             searchString+="None";
         }
-        assertEquals("None","None");
+        assertEquals(searchString,result);
+
     }
 }

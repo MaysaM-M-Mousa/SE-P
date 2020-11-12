@@ -1,8 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByBedrooms implements SearchInterface {
 
@@ -11,11 +12,11 @@ public class SearchByBedrooms implements SearchInterface {
 
     public SearchByBedrooms(Integer bedrooms) {
         this.bedrooms = bedrooms;
-        byBedrooms = new ArrayList<Home>();
+        byBedrooms = new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
-        for (Home home : HomeList)
+    public List<Home> search(List<Home> homeList) {
+        for (Home home : homeList)
             if (home.getBedrooms() == (int)bedrooms)
                 byBedrooms.add(home);
 

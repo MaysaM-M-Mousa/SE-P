@@ -1,9 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
-import io.cucumber.java.bs.A;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByAmenities implements SearchInterface{
 
@@ -12,11 +12,11 @@ public class SearchByAmenities implements SearchInterface{
 
     public SearchByAmenities(String amenity) {
         this.amenity = amenity;
-        byAmenities= new ArrayList<Home>();
+        byAmenities= new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
-        for (Home home : HomeList)
+    public List<Home> search(List<Home> homeList) {
+        for (Home home : homeList)
             for (String x : home.getAmenities())
                 if (x.equals(amenity))
                     byAmenities.add(home);

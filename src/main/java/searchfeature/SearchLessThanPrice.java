@@ -1,8 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchLessThanPrice implements SearchInterface{
 
@@ -11,11 +12,11 @@ public class SearchLessThanPrice implements SearchInterface{
 
     public SearchLessThanPrice(Integer price) {
         this.price = price;
-        lessThanPrice = new ArrayList<Home>();
+        lessThanPrice = new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
-        for (Home home : HomeList)
+    public List<Home> search(List<Home> homeList) {
+        for (Home home : homeList)
             if (home.getPrice() < price)
                 lessThanPrice.add(home);
 

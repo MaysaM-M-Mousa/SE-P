@@ -1,8 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByMaterial implements SearchInterface {
 
@@ -11,11 +12,11 @@ public class SearchByMaterial implements SearchInterface {
 
     public SearchByMaterial(String material) {
         this.material = material;
-        byMaterial = new ArrayList<Home>();
+        byMaterial = new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
-        for (Home home : HomeList)
+    public List<Home> search(List<Home> homeList) {
+        for (Home home : homeList)
             if (home.getMaterial().equals(material)) {
                 byMaterial.add(home);
             }

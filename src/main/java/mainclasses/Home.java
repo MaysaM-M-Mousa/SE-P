@@ -1,4 +1,4 @@
-package MainClasess;
+package mainclasses;
 
 public class Home {
     private String ID;
@@ -16,24 +16,7 @@ public class Home {
 
     private Boolean pets;
 
-    public Home() {
-    }
 
-    public Home(String ID, String type, String material, String placement, String[] amenities, Integer price,
-                Integer area, Integer bedrooms, Integer bathrooms, Integer leaseLength, Boolean pets) {
-        this.ID = ID;
-        this.type = type;
-        this.material = material;
-        this.placement = placement;
-        this.amenities = amenities;
-        this.price = price;
-        this.area = area;
-        this.bedrooms = bedrooms;
-        this.bathrooms = bathrooms;
-        this.leaseLength = leaseLength;
-        this.pets = pets;
-
-    }
 
     public String getID() {
         return ID;
@@ -112,14 +95,5 @@ public class Home {
         this.pets = pets;
     }
 
-    @Override
-    public String toString() {
-        String resultAmenities="";
-        for (String temp:amenities)
-                resultAmenities+=temp+",";
-        return "[MainClasess.Home ID: "+getID()+", MainClasess.Home Type: "+getType()+", MainClasess.Home Placement: "+getPlacement()+", MainClasess.Home Price: "+getPrice()
-                +", Amenities: ("+resultAmenities.substring(0,resultAmenities.length()-1)+")" +", Bedrooms: "+getBedrooms()+",Bathrooms: "+getBathrooms()
-                +", Pets: "+getBedrooms();
 
-    }
 }

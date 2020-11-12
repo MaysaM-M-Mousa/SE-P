@@ -1,8 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByType implements SearchInterface {
 
@@ -11,12 +12,12 @@ public class SearchByType implements SearchInterface {
 
     public SearchByType(String type) {
         this.type = type;
-        byType = new ArrayList<Home>();
+        byType = new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
+    public List<Home> search(List<Home> homeList) {
 
-        for (Home home : HomeList)
+        for (Home home : homeList)
             if (home.getType().equals(type))
                 byType.add(home);
 

@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SE-P" target="6" />
+      <module name="SE-P" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

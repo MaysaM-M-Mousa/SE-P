@@ -1,8 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByPlacement implements SearchInterface {
 
@@ -11,12 +12,12 @@ public class SearchByPlacement implements SearchInterface {
 
     public SearchByPlacement(String condition) {
         this.placement = condition;
-        byPlacement = new ArrayList<Home>();
+        byPlacement = new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
+    public List<Home> search(List<Home> homeList) {
 
-        for (Home home : HomeList)
+        for (Home home : homeList)
             if (home.getPlacement().equals(placement)) {
                 byPlacement.add(home);
             }

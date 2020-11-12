@@ -1,8 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByArea implements SearchInterface{
 
@@ -11,12 +12,12 @@ public class SearchByArea implements SearchInterface{
 
     public SearchByArea(Integer area) {
         this.area = area;
-        byArea=new ArrayList<Home>();
+        byArea=new ArrayList<>();
     }
 
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
-        for (Home home : HomeList)
+    public List<Home> search(List<Home> homeList) {
+        for (Home home : homeList)
             if (home.getArea() < area)
                 byArea.add(home);
 

@@ -1,1 +1,15 @@
-Home.class
+searchfeature\SearchByMaterial.class
+searchfeature\SearchByPlacement.class
+searchfeature\SearchByBathrooms.class
+searchfeature\SearchByPets.class
+searchfeature\CompositeSearch.class
+searchfeature\SearchByInBetweenArea.class
+searchfeature\SearchInterface.class
+searchfeature\SearchByArea.class
+searchfeature\SearchByBedrooms.class
+searchfeature\SearchInBetweenPrice.class
+searchfeature\SearchByLease.class
+searchfeature\SearchByAmenities.class
+searchfeature\SearchLessThanPrice.class
+mainclasses\Home.class
+searchfeature\SearchByType.class

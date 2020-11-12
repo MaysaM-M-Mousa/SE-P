@@ -1,9 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
-import io.cucumber.java.bs.A;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByBathrooms implements SearchInterface{
     Integer bathrooms;
@@ -11,12 +11,12 @@ public class SearchByBathrooms implements SearchInterface{
 
     public SearchByBathrooms(Integer bathrooms) {
         this.bathrooms = bathrooms;
-        byBathrooms=new ArrayList<Home>();
+        byBathrooms=new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
-        for (Home home : HomeList)
-            if (home.getBathrooms() == bathrooms)
+    public List<Home> search(List<Home> homeList) {
+        for (Home home : homeList)
+            if (home.getBathrooms() == (int)bathrooms)
                 byBathrooms.add(home);
 
         return byBathrooms;

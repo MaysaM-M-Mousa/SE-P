@@ -1,8 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByLease implements SearchInterface{
     Integer lease;
@@ -10,11 +11,11 @@ public class SearchByLease implements SearchInterface{
 
     public SearchByLease(Integer lease) {
         this.lease = lease;
-        byLease=new ArrayList<Home>();
+        byLease=new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
-        for (Home home : HomeList) {
+    public List<Home> search(List<Home> homeList) {
+        for (Home home : homeList) {
             if (home.getLeaseLength() == (int)lease)
                 byLease.add(home);
         }

@@ -1,8 +1,9 @@
-package SearchFeature;
+package searchfeature;
 
-import MainClasess.Home;
+import mainclasses.Home;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchByInBetweenArea implements SearchInterface {
 
@@ -13,12 +14,12 @@ public class SearchByInBetweenArea implements SearchInterface {
     public SearchByInBetweenArea(Integer less, Integer more) {
         this.less = less;
         this.more = more;
-        byInBetweenArea = new ArrayList<Home>();
+        byInBetweenArea = new ArrayList<>();
     }
 
-    public ArrayList<Home> search(ArrayList<Home> HomeList) {
+    public List<Home> search(List<Home> homeList) {
 
-        for (Home home : HomeList) {
+        for (Home home : homeList) {
             if (home.getArea() < less && home.getArea() > more)
                 byInBetweenArea.add(home);
         }
