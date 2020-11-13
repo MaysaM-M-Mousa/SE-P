@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="35" failures="0" name="TestRunner" time="0.283" errors="0" skipped="0">
+<testsuite tests="35" failures="0" name="TestRunner" time="0.273" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2020.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -59,39 +59,39 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Search about suitable home" name="Search about home by specific type (apartment/house) #1" time="0.149"/>
-  <testcase classname="Search about suitable home" name="Search about home by specific type (apartment/house) #2" time="0.004"/>
-  <testcase classname="Search about suitable home" name="Search home by material #1" time="0.01"/>
+  <testcase classname="Search about suitable home" name="Search about home by specific type (apartment/house) #1" time="0.173"/>
+  <testcase classname="Search about suitable home" name="Search about home by specific type (apartment/house) #2" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search home by material #1" time="0.008"/>
   <testcase classname="Search about suitable home" name="Search home by material #2" time="0.008"/>
-  <testcase classname="Search about suitable home" name="Search home by placement #1" time="0.004"/>
-  <testcase classname="Search about suitable home" name="Search home by placement #2" time="0.002"/>
-  <testcase classname="Search about suitable home" name="Search about home by allow pets #1" time="0.006"/>
-  <testcase classname="Search about suitable home" name="Search about home by allow pets #2" time="0.006"/>
-  <testcase classname="Search about suitable home" name="Search about home by specific Amenities #1" time="0.004"/>
-  <testcase classname="Search about suitable home" name="Search about home by specific Amenities #2" time="0.007"/>
-  <testcase classname="Search about suitable home" name="Search about home by specific Amenities #3" time="0.004"/>
+  <testcase classname="Search about suitable home" name="Search home by placement #1" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search home by placement #2" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home by allow pets #1" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home by allow pets #2" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home by specific Amenities #1" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home by specific Amenities #2" time="0.006"/>
+  <testcase classname="Search about suitable home" name="Search about home by specific Amenities #3" time="0.002"/>
   <testcase classname="Search about suitable home" name="Search about home by specific Amenities #4" time="0.003"/>
-  <testcase classname="Search about suitable home" name="Search about home by specific Amenities #5" time="0.008"/>
+  <testcase classname="Search about suitable home" name="Search about home by specific Amenities #5" time="0.003"/>
   <testcase classname="Search about suitable home" name="Search about home by specific Amenities #6" time="0.002"/>
-  <testcase classname="Search about suitable home" name="Search about home with less than a specific price #1" time="0.006"/>
-  <testcase classname="Search about suitable home" name="Search about home with less than a specific price #2" time="0.004"/>
-  <testcase classname="Search about suitable home" name="Search about home with between specific price #1" time="0.004"/>
-  <testcase classname="Search about suitable home" name="Search about home with between specific price #2" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home with less than a specific price #1" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home with less than a specific price #2" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home with between specific price #1" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home with between specific price #2" time="0.002"/>
   <testcase classname="Search about suitable home" name="Search about home with less than a specific area #1" time="0.003"/>
-  <testcase classname="Search about suitable home" name="Search about home with less than a specific area #2" time="0.004"/>
+  <testcase classname="Search about suitable home" name="Search about home with less than a specific area #2" time="0.002"/>
   <testcase classname="Search about suitable home" name="Search about home with Area in between two specifics sizes #1" time="0.002"/>
   <testcase classname="Search about suitable home" name="Search about home with Area in between two specifics sizes #2" time="0.003"/>
-  <testcase classname="Search about suitable home" name="Search about home by number of bedrooms #1" time="0.004"/>
+  <testcase classname="Search about suitable home" name="Search about home by number of bedrooms #1" time="0.002"/>
   <testcase classname="Search about suitable home" name="Search about home by number of bedrooms #2" time="0.003"/>
-  <testcase classname="Search about suitable home" name="Search about home by number of bathrooms #1" time="0.004"/>
-  <testcase classname="Search about suitable home" name="Search about home by number of bathrooms #2" time="0.004"/>
-  <testcase classname="Search about suitable home" name="Search about home by specific Lease Length (short term_6 months/long term_year) #1" time="0.001"/>
+  <testcase classname="Search about suitable home" name="Search about home by number of bathrooms #1" time="0.001"/>
+  <testcase classname="Search about suitable home" name="Search about home by number of bathrooms #2" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Search about home by specific Lease Length (short term_6 months/long term_year) #1" time="0.002"/>
   <testcase classname="Search about suitable home" name="Search about home by specific Lease Length (short term_6 months/long term_year) #2" time="0.003"/>
   <testcase classname="Search about suitable home" name="Combined Scenario #1 #1" time="0.002"/>
-  <testcase classname="Search about suitable home" name="Combined Scenario #1 #2" time="0.01"/>
-  <testcase classname="Search about suitable home" name="Combined Scenario #1 #3" time="0"/>
-  <testcase classname="Search about suitable home" name="Combined Scenario #2 #1" time="0"/>
-  <testcase classname="Search about suitable home" name="Combined Scenario #2 #2" time="0.002"/>
-  <testcase classname="Search about suitable home" name="Combined Scenario #3 #1" time="0.001"/>
-  <testcase classname="Search about suitable home" name="Combined Scenario #3 #2" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Combined Scenario #1 #2" time="0.002"/>
+  <testcase classname="Search about suitable home" name="Combined Scenario #1 #3" time="0.002"/>
+  <testcase classname="Search about suitable home" name="Combined Scenario #2 #1" time="0.002"/>
+  <testcase classname="Search about suitable home" name="Combined Scenario #2 #2" time="0.003"/>
+  <testcase classname="Search about suitable home" name="Combined Scenario #3 #1" time="0.002"/>
+  <testcase classname="Search about suitable home" name="Combined Scenario #3 #2" time="0.002"/>
 </testsuite>

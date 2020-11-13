@@ -1,3 +1,4 @@
+import io.cucumber.java.en.And;
 import mainclasses.Home;
 import searchfeature.*;
 import io.cucumber.datatable.DataTable;
@@ -157,4 +158,10 @@ public class SearchSteps {
         assertEquals(searchString,result);
 
     }
+
+    @And("An Email with a list of search results will be sent to customer email")
+    public void anEmailWithAListOfSearchResultsWillBeSentToCustomerEmail() {
+    }
+
+
 }

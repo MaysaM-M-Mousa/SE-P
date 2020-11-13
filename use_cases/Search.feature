@@ -35,6 +35,7 @@ Feature: Search about suitable home
   Scenario Outline: Search about home by specific type (apartment/house)
     When I search about home by type "<type>" specification
     Then A list of homes that matches specifications "<result>" should be returned and printed on the console
+    And An Email with a list of search results will be sent to customer email
     Examples:
       | type      | result |
       | House     | 01     |
