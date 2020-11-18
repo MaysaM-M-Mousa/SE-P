@@ -35,14 +35,14 @@ public class EmailService {
             message.setSubject(subject);
             message.setText(String.format("Hello \n" +
                     "Here are the houses you requested to be sent on your Email \n" +
-                    "%6d\n" +
-                    "\n" +
+                    "\n\n" +
                     "\n" +Arrays.toString(searchResults.toArray())));
             Transport transport = session.getTransport("smtp");
             transport.connect(host, USER_NAME, PASSWORD);
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
         } catch (Exception ae){
+            ae.printStackTrace();
             return false;
         }
 
