@@ -1,7 +1,7 @@
 package mainclasses;
 
 public class Home {
-    private String ID;
+    private String id;
     private String type;
     private String material;
     private String placement;
@@ -14,28 +14,13 @@ public class Home {
 
     private Boolean pets;
 
-    public Home(){}
 
-    public Home(String ID, String type, String material, String placement, String[] amenities, Integer price,
-                Integer area, Integer bedrooms, Integer bathrooms, Integer leaseLength, Boolean pets) {
-        this.ID = ID;
-        this.type = type;
-        this.material = material;
-        this.placement = placement;
-        this.amenities = amenities;
-        this.price = price;
-        this.area = area;
-        this.bedrooms = bedrooms;
-        this.bathrooms = bathrooms;
-        this.leaseLength = leaseLength;
-        this.pets = pets;
-    }
 
     public String getID() {
-        return ID;
+        return id;
     }
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID(String id) {
+        this.id = id;
     }
 
     public String getType() {
@@ -113,7 +98,10 @@ public class Home {
         for (String temp : this.amenities) {
             resultAmenities.append(temp).append(",");
         }
-        return "Home Type: " + this.getType() + ", Home Placement: " + this.getPlacement() + ", Home Price: " + this.getPrice() + ", Amenities: (" + resultAmenities.substring(0, resultAmenities.length() - 1) + "), Bedrooms: " + this.getBedrooms() + ",Bathrooms: " + this.getBathrooms() + ", Pets: " + this.getBedrooms();
+        return "Home Type: " + this.getType() + ", Home Placement: " + this.getPlacement() +
+                ", Home Price: " + this.getPrice() + ", Amenities: (" + resultAmenities.substring(0, resultAmenities.length() - 1) +
+                "), Bedrooms: " + this.getBedrooms() + ",Bathrooms: " + this.getBathrooms() + ", Pets: " + this.getPets() +
+                "lease Length"+ this.getLeaseLength();
     }
 
 
